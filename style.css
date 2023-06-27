@@ -1,0 +1,125 @@
+$sea-blue: #87bba2;
+$white-sail: #c9e4ca;
+
+body {
+  background: $sea-blue;
+}
+
+.box-drift {
+  position: absolute;
+  width: 100px;
+  height: 100%;
+  left: 0%; //ani inc
+  //border: solid 4px red;
+  animation: doDrift 16s infinite;
+}
+
+.box-bob {
+  position: absolute;
+  top: 55%; //ani up down
+  width: 100px;
+  background: none;
+  //border: solid 4px black;
+  animation: doBob 2s infinite;
+}
+
+.box-pitch {
+  height: 100px;
+  animation: doPitch 1s infinite;
+}
+
+.left-sail {
+  background: gray;
+  position: absolute;
+  top: 213px;
+  left: 11%;
+  width: 65px;
+  height: 54px;
+  -webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+}
+
+.right-sail {
+  background: gray;
+  position: absolute;
+  top: 200px;
+  left: 16%;
+  width: 100px;
+  height: 67px;
+  -webkit-clip-path: polygon(0 0, 0% 100%, 100% 100%);
+  clip-path: polygon(0 0, 0% 100%, 100% 100%);
+}
+
+.hull {
+  background: gray;
+  position: absolute;
+  top: 272px;
+  left: 10%;
+  width: 200px;
+  height: 25px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 79% 100%, 18% 100%);
+  clip-path: polygon(0 0, 100% 0, 79% 100%, 18% 100%);
+}
+.box-pitch {
+  height: 100px;
+  /* border: solid 4px blue; */
+  animation: doPitch 5s infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes doPitch {
+  0% {
+    transform: translateX(-100px);
+  }
+
+  100% {
+    transform: translateX(680px);
+  }
+}
+/* for the pen */
+html, body {
+  margin: 0;
+  min-height: 100%;
+  background-color: #f2f2f2;
+}
+
+/* waves */
+.ocean {
+  height: 80px; /* change the height of the waves here */
+  width: 100%;
+  position: absolute;
+  top: 285px;
+  left: 0;
+  right: 0;
+  overflow-x: hidden;
+}
+
+.wave {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M800 56.9c-155.5 0-204.9-50-405.5-49.9-200 0-250 49.9-394.5 49.9v31.8h800v-.2-31.6z' fill='%23003F7C'/%3E%3C/svg%3E");
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  animation: wave 10s -3s linear infinite;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.8;
+}
+
+.wave:nth-of-type(2) {
+  bottom: 0;
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.5;
+}
+
+.wave:nth-of-type(3) {
+  bottom: 0;
+  animation: wave 20s -1s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes wave {
+    0% {transform: translateX(0);}
+    50% {transform: translateX(-25%);}
+    100% {transform: translateX(-50%);}
+}
